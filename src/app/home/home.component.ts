@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ScrollToService } from 'ng2-scroll-to-el';
+import {Router} from '@angular/router';
+
 declare var jQuery: any;
 declare var $: any;
 @Component({
@@ -9,7 +11,7 @@ declare var $: any;
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private scrollService: ScrollToService) { }
+  constructor(private scrollService: ScrollToService,private routes:Router) { }
 
   ngOnInit() {
   }
@@ -17,4 +19,5 @@ export class HomeComponent implements OnInit {
   scrollToTop(element) {
     this.scrollService.scrollTo(element);
   }
+
 }

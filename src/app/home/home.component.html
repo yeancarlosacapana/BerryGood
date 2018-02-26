@@ -1,15 +1,13 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 
   <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse navbar-ex1-collapse subcontainer-menu">
+  <div class=" navbar-ex1-collapse subcontainer-menu">
     <ul class="nav navbar-nav col-lg-4">
-      <li class="active">
+      <li>
         <a href="#" [scrollTo]="'#arandano'" [scrollDuration]="1000" [scrollOffset]="-10">Arandanos</a>
       </li>
       <li>
-        <a href="#" [scrollTo]="'#frambueza'" [scrollOffset]="-50">Frambuezas <i class="fa fa-chevron-down"></i>
-
-        </a>
+        <a href="#" [scrollTo]="'#frambueza'" [scrollOffset]="-50">Frambuezas</a>
       </li>
       <li>
         <a href="#" [scrollTo]="'#aguaymanto'" [scrollOffset]="-50">Aguaymanto</a>
@@ -24,26 +22,45 @@
         <span class="icon-bar"></span>
       </button>
       <div class="title">
-        <a class="navbar-brand"  class="">
+        <a class="navbar-brand"  class="" (click)="scrollToTop(top)">
           <div class="berrygood"></div>
         </a>
       </div>
     </div>
     <ul class="nav navbar-nav col-lg-4">
-        <li class="active">
-          <a href="#" [scrollTo]="'#arandano'" [scrollDuration]="1000" [scrollOffset]="-10">Arandanos</a>
+        <li>
+          <a [routerLink]="['/productos']">Productos</a>
         </li>
         <li>
-          <a href="#" [scrollTo]="'#frambueza'" [scrollOffset]="-50">Frambuezas <i class="fa fa-chevron-down"></i>
-
-          </a>
-        </li>
-        <li>
-          <a href="#" [scrollTo]="'#aguaymanto'" [scrollOffset]="-50">Aguaymanto</a>
+          <a>
+            <i class="fa fa-user"></i> REGISTRARTE</a>
         </li>
       </ul>
   </div><!-- /.navbar-collapse -->
 </nav>
+<!-- modal -->
+<div class="modal fade" id="registerModalContent" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal -->
+
+
+
 <section #top class="login-page">
   <div class="col-lg-12 login">
     <div class="col-lg-8"></div>
@@ -55,6 +72,9 @@
       <div class="form-group">
         <label for="password">Contraseña</label>
         <input type="password" id="password" class="form-control">
+      </div>
+      <div class="form-group">
+        <button class="btn berrygood-btn">INICIAR SESIÓN</button>
       </div>
     </div>
     <div class="flecha-down">

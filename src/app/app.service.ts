@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Response, Http } from '@angular/http';
 
 // tslint:disable-next-line:import-blacklist
 import {Observable} from 'rxjs/Rx';
@@ -17,9 +17,16 @@ export class AppService {
   {
     return this.http.get(this.Url + 'distrito');
   }
-  public postCliente(oCliente)
+  public postCliente(oCliente): any
   // tslint:disable-next-line:one-line
   {
-    return this.http.post(this.Url + 'cliente', oCliente);
+    return this.http.post(this.Url + 'cliente', oCliente).map((response: Response) => response.json()).catch((error) => {
+      return Observable.throw(error);
+    });
+  }
+  public loginCustomer(oCustomer): any {
+    return this.http.post(this.Url + 'client', oCustomer).map((response: Response) => response.json()).catch((error) => {
+      return Observable.throw(error);
+    });
   }
 }

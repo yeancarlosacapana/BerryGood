@@ -23,10 +23,7 @@
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.js",
-        "../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js",
-        "assets/js/bootstrap.bundle.js",
-        "assets/js/jquery.easing.js",
-        "assets/js/jquery.magnific-popup.js"
+        "../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

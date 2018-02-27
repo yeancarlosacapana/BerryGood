@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -8,7 +9,7 @@ import { PromocionesComponent } from './promociones/promociones.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 
 import {ScrollToModule} from 'ng2-scroll-to-el';
-import {routing} from './app.routes';
+import {AppRoute} from './app.routes';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,9 @@ import {routing} from './app.routes';
   imports: [
     BrowserModule,
     ScrollToModule.forRoot(),
-    routing
+    AppRoute,
+    HttpModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

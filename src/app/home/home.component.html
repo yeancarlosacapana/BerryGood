@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 
   <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class=" navbar-ex1-collapse subcontainer-menu">
+  <div class="collapse navbar-collapse navbar-ex1-collapse subcontainer-menu">
     <ul class="nav navbar-nav col-lg-4">
       <li>
         <a href="#" [scrollTo]="'#arandano'" [scrollDuration]="1000" [scrollOffset]="-10">Arandanos</a>
@@ -15,12 +15,6 @@
     </ul>
     <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header col-lg-4">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
       <div class="title">
         <a class="navbar-brand"  class="" (click)="scrollToTop(top)">
           <div class="berrygood"></div>
@@ -29,10 +23,9 @@
     </div>
     <ul class="nav navbar-nav col-lg-4">
         <li>
-          <a [routerLink]="['/productos']">Productos</a>
-        </li>
+          <a [routerLink]="['/productos']">Productos</a></li>
         <li>
-          <a>
+          <a data-toggle="modal" data-target="#registerModalContent">
             <i class="fa fa-user"></i> REGISTRARTE</a>
         </li>
       </ul>
@@ -44,23 +37,53 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">Registrarse</h4>
       </div>
       <div class="modal-body">
-        ...
+        <div class="form-group col-lg-6">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" class="form-control" name="nombre" [(ngModel)]="addCliente.nombre">
+        </div>
+        <div class="form-group col-lg-6">
+          <label for="apellido">Apellido</label>
+          <input type="text" id="apellido" class="form-control" name="apellidos" [(ngModel)]="addCliente.apellidos">
+        </div>
+        <div class="form-group col-lg-6">
+          <label for="correo">Email</label>
+          <input type="email" id="correo" class="form-control" name="correo" [(ngModel)]="addCliente.correo">
+        </div>
+        <div class="form-group col-lg-6">
+          <label for="pass">Password</label>
+          <input type="password"  id="pass" class="form-control" name="password" [(ngModel)]="addCliente.password">
+        </div>
+        <div class="form-group col-lg-6">
+          <label for="celular">Celular</label>
+          <input type="tel" id="celular" class="form-control" name="celular" [(ngModel)]="addCliente.celular">
+        </div>
+        <div class="form-group col-lg-6">
+          <label for="dni">DNI</label>
+          <input type="number" id="dni" class="form-control" name="dni" [(ngModel)]="addCliente.dni">
+        </div>
+        <div class="form-group col-lg-6">
+          <label for="direccion">Direccion</label>
+          <input type="text" placeholder="" id="direccion" class="form-control" name="direccion" [(ngModel)]="addCliente.direccion">
+        </div>
+        <div class="form-group col-lg-6" >
+          <label for="">Distrito</label>
+          <select name="" id="" class="form-control" name="distrito" [(ngModel)]="addCliente.distrito">
+            <option *ngFor="let distrito of listaDistrito" [value]="distrito.cod_distrito">{{distrito.nombre_distrito}}</option>
+          </select>
+        </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)='postCliente()'>Guardar</button>
       </div>
     </div>
   </div>
 </div>
-
+<h1 class="alert"> {{ errorMessage.resp }} hola</h1>
 <!-- modal -->
-
-
-
 <section #top class="login-page">
   <div class="col-lg-12 login">
     <div class="col-lg-8"></div>

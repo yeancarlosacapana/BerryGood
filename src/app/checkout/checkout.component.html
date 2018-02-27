@@ -1,6 +1,51 @@
-<div class="col-lg-3">
-  <app-promociones></app-promociones>
-</div>
-<div class="col-lg-9">
-  <h1>Hola route</h1>
+<div class="contenedor" >
+  <div class="col-lg-3 p-vigentes">
+    <app-promociones></app-promociones>
+  </div>
+  <div class="col-lg-6">
+    <div class="col-lg-6">
+      <h5>
+        <span>
+            <i class="fa fa-sliders fa-lg-4"></i>
+            FILTORS
+        </span>
+      </h5>
+    </div>
+    <div class="col-lg-6">
+      <div class="form-group">
+        <select name="" id=""  class="form-control">
+          <option [value]="categoria.cod_categoria" *ngFor="let categoria of listaCategoria">{{categoria.nombre_categoria}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-lg-12">
+      <div class="col-lg-6">
+        <h4 class="text-center">seleccione su pedido</h4>
+        <div class="prueba" *ngFor="let productCategory of listaProductCategory; let i = index">
+          <ul> {{productCategory.nombre_categoria}}
+            <li>{{productCategory.nombre_producto}} | {{productCategory.precio}}
+              <input type="checkbox" name="" id="" [value]="productCategory.cod_producto" [(ngModel)]="addProduct[i]" (click)='addItem()'>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-12">
+            <div class="col-lg-4">
+              <h5>Producto escogido</h5>
+
+            </div>
+            <div class="col-lg-4">
+              <h5>cantidad</h5>
+            </div>
+            <div class="col-lg-4">
+              <h5>precio</h5>
+            </div>
+        </div>
+      </div>
+      <div class="col-lg-6"><h4>domicilio</h4></div>
+      <div class="col-lg-6"> <h1>realg4life</h1></div>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <h1>otro div</h1>
+  </div>
 </div>

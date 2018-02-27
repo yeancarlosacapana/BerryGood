@@ -29,4 +29,13 @@ export class AppService {
       return Observable.throw(error);
     });
   }
+  public getCampain() {
+    return this.http.get(this.Url + 'campain');
+  }
+  public getCategory() {
+    return this.http.get(this.Url + 'categoria');
+  }
+  public getProductCategory() {
+    return this.http.get(this.Url + 'productCategory');
+  }
 }

@@ -38,4 +38,7 @@ export class AppService {
   public getProductCategory() {
     return this.http.get(this.Url + 'productCategory');
   }
+  public getProductos() {
+    return this.http.get(this.Url + 'producto');
+  }
 }

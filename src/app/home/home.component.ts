@@ -17,16 +17,16 @@ export class HomeComponent implements OnInit {
   public listaDistrito: any[] = [];
   public addCliente: Cliente = new Cliente();
   public errorMessage: string;
-  public successMessage: string;
   public userErrorMessage: string;
-
+  public userLogued: any;
   constructor(private scrollService: ScrollToService,
               private router: Router,
               private Services: AppService) { }
 
   ngOnInit() {
     this.getDistrito();
-    console.log(this.successMessage);
+    console.log(this.userLogued);
+    // console.log(this.successMessage);
   }
 
   scrollToTop(element) {
@@ -39,14 +39,12 @@ export class HomeComponent implements OnInit {
     });
   }
   postCliente() {
-    console.log(this.errorMessage);
-    console.log(this.successMessage);
+    // console.log(this.errorMessage);
+    // console.log(this.successMessage);
     this.Services.postCliente(this.addCliente).subscribe(rest => {
       this.errorMessage = undefined;
-      this.successMessage = rest.ok;
     }, error => {
       this.errorMessage = error.json().resp;
-      this.successMessage = undefined;
       console.log(error);
     });
     // jQuery('#registerModalContent').modal('hide');
@@ -54,12 +52,12 @@ export class HomeComponent implements OnInit {
   login() {
     this.Services.loginCustomer(this.addCliente).subscribe(rest => {
       localStorage.setItem('user', JSON.stringify(rest));
-      console.log(rest);
+      // console.log(rest);
+      this.userLogued = rest;
+      console.log(this.userLogued);
     }, error => {
       console.log(this.userErrorMessage, 'prueba');
-      if ( this.userErrorMessage === undefined ) {
-        this.userErrorMessage = error.json().resp;
-      }
+      this.userErrorMessage = error.json().resp;
     });
   }
 }

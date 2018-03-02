@@ -12,11 +12,13 @@ export class CheckoutComponent implements OnInit {
   public listaProductCategory: any[] = [];
   public addProduct = {};
   public listaAdd: any[] = [];
+  public listaProducts: any[] = [];
   constructor( private Services: AppService) { }
 
   ngOnInit() {
     this.getAllCategory();
     this.getProductCategory();
+    this.getProducts();
   }
   getAllCategory() {
     this.Services.getCategory().subscribe(rest => {
@@ -30,8 +32,20 @@ export class CheckoutComponent implements OnInit {
       console.log(this.listaProductCategory);
     });
   }
-  addItem(i) {
-    // this.listaAdd.push({this.listaProductCategory[i]});
-    // console.log(this.);
+  addItem(productCategory, isChecked) {
+    if ( isChecked) {
+      console.log('check');
+    } else {
+      console.log('uncheck');
+    }
+    this.listaAdd.push(productCategory);
+    console.log(this.listaAdd);
+
+  }
+  getProducts() {
+    this.Services.getProductos().subscribe(rest => {
+      this.listaProducts = rest.json();
+      console.log(this.listaProducts);
+    });
   }
 }
